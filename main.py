@@ -216,5 +216,5 @@ https://t.me/{(await bot.get_me()).username}?start={user_id}
 
 # ---------------- RUN ----------------
 
-printprint("BOT STARTED")
+print("BOT STARTED")
 bot.run()
