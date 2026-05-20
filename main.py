@@ -10,7 +10,7 @@ import asyncio
 API_ID = 37144664
 API_HASH = "30b1c7e1d3d66d68a3233aea019cc8a2"
 BOT_TOKEN = "8376714760:AAGQIDxvYNfQi8qinvJ8Y8U4POxC605tp5U"
-MONGO_URL = "mongodb+srv://mahir444:Alamin@14@cluster0.bf0g0uh.mongodb.net/?retryWrites=true&w=majority"
+MONGO_URL = "mongodb+srv://mahir444:Alamin%4014@cluster0.bf0g0uh.mongodb.net/?retryWrites=true&w=majority"
 CHANNEL = "https://t.me/MAHIR_TRADER6"
 PASSKEY = "VIP2026"
 
