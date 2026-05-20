@@ -11,7 +11,7 @@ API_ID = 37144664
 API_HASH = "30b1c7e1d3d66d68a3233aea019cc8a2"
 BOT_TOKEN = "8376714760:AAGQIDxvYNfQi8qinvJ8Y8U4POxC605tp5U"
 MONGO_URL = "mongodb+srv://mahir444:Alamin%4014@cluster0.bf0g0uh.mongodb.net/?retryWrites=true&w=majority"
-CHANNEL = "https://t.me/MAHIR_TRADER6"
+CHANNEL = "@MAHIR_TRADER6"
 PASSKEY = "VIP2026"
 
 bot = Client(
@@ -51,7 +51,7 @@ async def start(client, message):
 """
 
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📢 CHANNEL", url=f"https://t.me/MAHIR_TRADER6")],
+        [InlineKeyboardButton("📢 CHANNEL", url=f"@MAHIR_TRADER6")],
         [InlineKeyboardButton("🚀 LOGIN", callback_data="login")],
         [InlineKeyboardButton("❓ HELP", callback_data="help")]
     ])
@@ -107,13 +107,12 @@ login_users = {}
 @bot.on_callback_query(filters.regex("login"))
 async def login(client, callback_query):
 
-    login_users[callback_query.from_user.id] = "uid"
+login_users[callback_query.from_user.id] = "pass"
 
-    await callback_query.message.reply_text(
-        "🆔 Send Your UID"
-    )
+await callback_query.message.reply_text(
+    "🔐 Send Passkey") 
 
-# ---------------- UID INPUT ----------------
+
 
 @bot.on_message(filters.text)
 async def uid_input(client, message):
@@ -127,29 +126,15 @@ async def uid_input(client, message):
 
     step = login_users[user_id]
 
-    if step == "uid":
-
-        await users.update_one(
-            {"user_id": user_id},
-            {"$set": {"uid": message.text}},
-            upsert=True
-        )
-
-        login_users[user_id] = "pass"
-
-        await message.reply_text(
-            "🔐 Send Passkey"
-        )
-
-    elif step == "pass":
+    if step == "pass":
 
         if message.text != PASSKEY:
             await message.reply_text(
                 "❌ Wrong Passkey"
             )
             return
-
-        await users.update_one(
+            
+            await users.update_one(
             {"user_id": user_id},
             {"$set": {"access": True}},
             upsert=True
