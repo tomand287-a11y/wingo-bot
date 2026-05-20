@@ -1,3 +1,6 @@
+import asyncio
+asyncio.set_event_loop(asyncio.new_event_loop())
+
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -213,5 +216,5 @@ https://t.me/{(await bot.get_me()).username}?start={user_id}
 
 # ---------------- RUN ----------------
 
-print("BOT STARTED")
+printprint("BOT STARTED")
 bot.run()
