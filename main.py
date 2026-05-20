@@ -51,7 +51,7 @@ async def start(client, message):
 """
 
     buttons = InlineKeyboardMarkup([
-        [InlineKeyboardButton("📢 CHANNEL", url=f"https://t.me/{CHANNEL}")],
+        [InlineKeyboardButton("📢 CHANNEL", url=f"https://t.me/MAHIR_TRADER6")],
         [InlineKeyboardButton("🚀 LOGIN", callback_data="login")],
         [InlineKeyboardButton("❓ HELP", callback_data="help")]
     ])
@@ -117,6 +117,8 @@ async def login(client, callback_query):
 
 @bot.on_message(filters.text)
 async def uid_input(client, message):
+
+    print(message.text)
 
     user_id = message.from_user.id
 
